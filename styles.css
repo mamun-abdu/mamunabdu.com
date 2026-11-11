@@ -35,12 +35,6 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-#projects,
-#writing,
-#contact {
-  scroll-margin-top: calc(var(--header) + 0.75rem);
-}
-
 body {
   margin: 0;
   min-height: 100vh;
@@ -342,16 +336,23 @@ main {
     var(--bg-card);
   box-shadow: var(--shadow);
   overflow: auto;
+  white-space: pre-wrap;
   font-family: var(--mono);
   font-size: 0.84rem;
   line-height: 1.7;
   color: var(--text);
 }
 
+.code-card .ln {
+  display: block;
+  padding-left: 4ch;
+  text-indent: -2ch;
+}
+
 .code-card .kw { color: #d4a0ff; }
 .code-card .id { color: #8fd3ff; }
 .code-card .key { color: #9ecbff; }
-.code-card .str { color: var(--accent); }
+.code-card .str { color: var(--accent); white-space: nowrap; }
 .code-card .op,
 .code-card .p { color: var(--muted); }
 
@@ -380,7 +381,7 @@ main {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: scroll 28s linear infinite;
+  animation: scroll 56s linear infinite;
 }
 
 .marquee:hover .marquee-track {
