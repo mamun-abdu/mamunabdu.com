@@ -321,6 +321,17 @@ main {
   padding: 0.55rem 1rem;
 }
 
+.code-wrap {
+  min-width: 0;
+}
+
+.code-caption {
+  margin: 0.9rem 0.25rem 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .code-card {
   margin: 0;
   padding: 1.4rem 1.5rem;
