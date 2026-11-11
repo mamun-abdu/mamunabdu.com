@@ -34,17 +34,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:SOFT,opsz,wght@50,9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <a class="wordmark" href="./">mamunabdu</a>
-    <nav aria-label="Primary">
-      <a href="#projects">Projects</a>
-      <a href="#writing">Writing</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="header-inner">
+      <a class="wordmark" href="./">mamunabdu</a>
+      <nav aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main id="main">
@@ -63,8 +66,7 @@
           Statistics and CS student exploring AI, data, and software development.
         </p>
         <p class="lede lede-soft">
-          This little corner of the web is still being built. In the meantime,
-          here are a few things I’ve made, written, and learned along the way.
+          This little corner of the web is still being built.
         </p>
         <div class="socials" aria-label="Social links">
           <a href="https://github.com/mamun-abdu" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -84,7 +86,7 @@
 <span class="p">};</span></code></pre>
     </section>
 
-    <section class="skills" aria-label="Skills">
+    <section class="skills reveal" aria-label="Skills">
       <p class="eyebrow">Skills</p>
       <div class="marquee" data-marquee>
         <div class="marquee-track">
@@ -110,7 +112,7 @@
       </div>
     </section>
 
-    <section id="projects" class="section">
+    <section id="projects" class="section reveal">
       <h2 class="section-heading">Projects</h2>
       <div class="card-grid">
         <article class="card">
@@ -149,7 +151,7 @@
       </div>
     </section>
 
-    <section id="writing" class="section">
+    <section id="writing" class="section reveal">
       <h2 class="section-heading">Writing</h2>
       <ul class="post-list" id="posts">
         <!-- Filled by script.js; static fallback is also in the markup below for no-JS. -->
@@ -191,15 +193,14 @@
       </ul>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact" class="contact reveal">
       <p class="eyebrow">Contact</p>
       <h2>Say hello</h2>
       <p>
-        I’m open to internships, collaboration, and a good conversation.
-        This site will grow as I have more to share.
+        I’m open to internships and collaborations. Say hello or get in touch.
       </p>
-      <div class="socials socials-lg" aria-label="Contact links">
-        <a href="mailto:hello@mamunabdu.pro.bd">hello@mamunabdu.pro.bd</a>
+      <a class="email-btn" href="mailto:hello@mamunabdu.pro.bd">hello@mamunabdu.pro.bd</a>
+      <div class="socials socials-lg" aria-label="Social links">
         <a href="https://github.com/mamun-abdu" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://linkedin.com/in/mamunabdu" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://mamunabdu.hashnode.dev/" target="_blank" rel="noopener noreferrer">Hashnode</a>
@@ -210,7 +211,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>Built with curiosity</p>
+    <p>Built with curiosity by Mamun</p>
   </footer>
 
   <script src="script.js"></script>

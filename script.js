@@ -130,4 +130,56 @@
       // Hashnode's public GraphQL API is no longer free, and RSS may be blocked by CORS.
       // The static posts already in the page remain as the fallback.
     });
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reveals = document.querySelectorAll(".reveal");
+
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add("is-visible"));
+  }
+
+  const navLinks = Array.from(document.querySelectorAll('.site-header nav a[href^="#"]'));
+  const navTargets = navLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  function setActiveNav() {
+    if (!navTargets.length) return;
+    const offset = 96;
+    if (navTargets[0].getBoundingClientRect().top > offset) {
+      navLinks.forEach((link) => {
+        link.classList.remove("is-active");
+        link.removeAttribute("aria-current");
+      });
+      return;
+    }
+    let current = navTargets[0];
+    navTargets.forEach((section) => {
+      if (section.getBoundingClientRect().top <= offset) current = section;
+    });
+    navLinks.forEach((link) => {
+      const on = link.getAttribute("href") === "#" + current.id;
+      link.classList.toggle("is-active", on);
+      if (on) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  }
+
+  setActiveNav();
+  window.addEventListener("scroll", setActiveNav, { passive: true });
+  window.addEventListener("resize", setActiveNav);
+
 })();

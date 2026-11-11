@@ -28,10 +28,17 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header) + 0.75rem);
 }
 
 html:focus-within {
   scroll-behavior: smooth;
+}
+
+#projects,
+#writing,
+#contact {
+  scroll-margin-top: calc(var(--header) + 0.75rem);
 }
 
 body {
@@ -148,22 +155,28 @@ main,
   position: sticky;
   top: 0;
   z-index: 10;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  max-width: var(--max);
+  margin: 0 auto;
   min-height: var(--header);
   padding: 0 clamp(1.25rem, 4vw, 2.5rem);
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
 }
 
 .wordmark {
   font-family: var(--mono);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-decoration: none;
   color: var(--text);
 }
@@ -174,18 +187,30 @@ main,
 
 .site-header nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 1.15rem;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.15rem;
 }
 
 .site-header nav a {
-  font-size: 0.92rem;
+  position: relative;
+  padding: 0.38rem 0.78rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
   color: var(--muted);
   text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
 .site-header nav a:hover {
   color: var(--text);
+  background: rgba(243, 238, 230, 0.05);
+}
+
+.site-header nav a.is-active,
+.site-header nav a[aria-current="location"] {
+  color: var(--text);
+  background: var(--accent-dim);
 }
 
 main {
@@ -369,7 +394,7 @@ main {
 }
 
 .section {
-  padding: 2.5rem 0 0.35rem;
+  padding: 2.75rem 0 0.5rem;
 }
 
 .section-heading {
@@ -395,12 +420,13 @@ main {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--bg-card);
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
-  border-color: var(--line-strong);
-  transform: translateY(-2px);
+  border-color: rgba(232, 184, 109, 0.42);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(232, 184, 109, 0.16);
 }
 
 .card-meta {
@@ -493,12 +519,42 @@ main {
   color: var(--muted);
 }
 
+.email-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.15rem 0 1.35rem;
+  padding: 0.72rem 1.25rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #1a140c;
+  font-weight: 500;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(232, 184, 109, 0.18);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.email-btn:hover {
+  color: #1a140c;
+  background: #f0c588;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(232, 184, 109, 0.28);
+}
+
+.contact .socials {
+  margin-top: 0;
+}
+
 .site-footer {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 2rem clamp(1.25rem, 4vw, 2.5rem) 3rem;
+  padding: 1.75rem clamp(1.25rem, 4vw, 2.5rem) 2.75rem;
   color: var(--faint);
-  font-size: 0.88rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
 }
 
 .site-footer p {
@@ -508,6 +564,17 @@ main {
 ::selection {
   background: var(--accent);
   color: #1a140c;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 @media (max-width: 860px) {
@@ -532,19 +599,22 @@ main {
 }
 
 @media (max-width: 600px) {
-  .site-header {
-    flex-wrap: wrap;
-    min-height: auto;
-    padding-top: 0.85rem;
-    padding-bottom: 0.85rem;
+  .header-inner {
+    min-height: 60px;
+    gap: 0.6rem;
   }
 
   .site-header nav a {
     font-size: 0.82rem;
+    padding: 0.32rem 0.55rem;
   }
 
   .contact {
     padding: 1.7rem 1.2rem;
+  }
+
+  .email-btn {
+    width: 100%;
   }
 }
 
@@ -555,6 +625,14 @@ main {
   .marquee-track { animation: none; width: auto; flex-wrap: wrap; }
   .skill-list[aria-hidden="true"] { display: none; }
   .skill-list { flex-wrap: wrap; padding: 0; }
-  .card { transition: none; }
-  .card:hover { transform: none; }
+  .js .reveal,
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .card,
+  .email-btn { transition: none; }
+  .card:hover,
+  .email-btn:hover { transform: none; }
 }
