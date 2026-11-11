@@ -156,26 +156,40 @@
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
 
-  function setActiveNav() {
-    if (!navTargets.length) return;
-    const offset = 96;
-    if (navTargets[0].getBoundingClientRect().top > offset) {
-      navLinks.forEach((link) => {
-        link.classList.remove("is-active");
-        link.removeAttribute("aria-current");
-      });
-      return;
-    }
-    let current = navTargets[0];
-    navTargets.forEach((section) => {
-      if (section.getBoundingClientRect().top <= offset) current = section;
-    });
+  function applyActive(current) {
     navLinks.forEach((link) => {
-      const on = link.getAttribute("href") === "#" + current.id;
+      const on = current && link.getAttribute("href") === "#" + current.id;
       link.classList.toggle("is-active", on);
       if (on) link.setAttribute("aria-current", "location");
       else link.removeAttribute("aria-current");
     });
+  }
+
+  function setActiveNav() {
+    if (!navTargets.length) return;
+    const header = document.querySelector(".site-header");
+    const offset = (header ? header.getBoundingClientRect().height : 72) + 20;
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const atBottom = window.scrollY > 8 && scrollBottom >= document.documentElement.scrollHeight - 16;
+
+    // The contact block often can't reach the offset line because the footer is short.
+    if (atBottom) {
+      applyActive(navTargets[navTargets.length - 1]);
+      return;
+    }
+
+    // A few px of slack so a section scrolled to the offset line still counts.
+    const slack = 4;
+    if (navTargets[0].getBoundingClientRect().top > offset + slack) {
+      applyActive(null);
+      return;
+    }
+
+    let current = navTargets[0];
+    navTargets.forEach((section) => {
+      if (section.getBoundingClientRect().top <= offset + slack) current = section;
+    });
+    applyActive(current);
   }
 
   setActiveNav();
