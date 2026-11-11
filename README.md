@@ -1,6 +1,6 @@
 # mamunabdu.com
 
-Personal site for [Md. Abdullah Al Mamun](https://github.com/mamun-abdu) — a still-cooking landing page with a few projects, Hashnode posts, milestones, and ways to get in touch.
+Personal site for [Md. Abdullah Al Mamun](https://github.com/mamun-abdu) — a still-cooking landing page with a few projects, Hashnode posts, and ways to get in touch.
 
 This is a static site: HTML, CSS, and a little JavaScript. No build step. Open `index.html` in a browser, or serve the folder with any static file server.
 

@@ -1,7 +1,4 @@
 (function () {
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-
   const fallback = [
     {
       title: "Ultimate Guide to Claiming the GitHub Student Developer Pack",
