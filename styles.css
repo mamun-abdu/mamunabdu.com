@@ -687,7 +687,6 @@ main {
   }
 }
 
-/* Prefer hiding the brand text over wrapping the bar. */
 @media (max-width: 339px) {
   .wordmark {
     width: 0;

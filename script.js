@@ -1,7 +1,4 @@
 (function () {
-  // Hashnode's RSS has no CORS header, so a browser fetch always fails and logs a
-  // console error. The static posts in the markup are the source of truth.
-
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const reveals = document.querySelectorAll(".reveal");
 
@@ -36,7 +33,6 @@
     });
   }
 
-  // Layout position, ignoring the reveal transform that shifts sections while they fade in.
   function topOf(el) {
     let y = 0;
     for (let n = el; n; n = n.offsetParent) y += n.offsetTop;
@@ -50,13 +46,11 @@
     const scrollBottom = window.scrollY + window.innerHeight;
     const atBottom = window.scrollY > 8 && scrollBottom >= document.documentElement.scrollHeight - 16;
 
-    // The contact block often can't reach the offset line because the footer is short.
     if (atBottom) {
       applyActive(navTargets[navTargets.length - 1]);
       return;
     }
 
-    // A few px of slack so a section scrolled to the offset line still counts.
     const slack = 4;
     if (topOf(navTargets[0]) > offset + slack) {
       applyActive(null);
