@@ -349,6 +349,8 @@ main {
   text-indent: -2ch;
 }
 
+.code-card .nl { display: none; }
+
 .code-card .kw { color: #d4a0ff; }
 .code-card .id { color: #8fd3ff; }
 .code-card .key { color: #9ecbff; }
