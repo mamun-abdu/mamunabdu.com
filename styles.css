@@ -478,9 +478,56 @@ main {
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(232, 184, 109, 0.16);
 }
 
+.card-featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1.1rem;
+  padding: 1.1rem;
+  border-color: rgba(232, 184, 109, 0.3);
+  background:
+    radial-gradient(500px 220px at 100% 0%, var(--accent-dim), transparent 60%),
+    var(--bg-card);
+}
+
+.feature-media {
+  display: block;
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid var(--line);
+  aspect-ratio: 800 / 420;
+  background: #f5f6f8;
+}
+
+.feature-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0.25rem 0.5rem 0.25rem 0;
+}
+
+.card-featured h3 {
+  font-size: 1.5rem;
+}
+
+.badge {
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
 .card-meta {
   display: flex;
-  gap: 0.6rem;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
   margin: 0 0 0.7rem;
   color: var(--faint);
   font-family: var(--mono);
@@ -561,6 +608,22 @@ main {
 
 .post-list li a:hover .post-title {
   color: var(--accent);
+}
+
+.about-intro {
+  max-width: 44rem;
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.about-open {
+  display: inline-block;
+  margin: 0 0 1.4rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--accent);
+  color: var(--text);
+  font-size: 0.98rem;
 }
 
 .about-grid {
@@ -715,8 +778,13 @@ main {
   }
 
   .card-grid,
-  .about-grid {
+  .about-grid,
+  .card-featured {
     grid-template-columns: 1fr;
+  }
+
+  .feature-body {
+    padding: 0 0.3rem 0.2rem;
   }
 
   .post-list li a {
@@ -797,4 +865,5 @@ main {
   .email-btn { transition: none; }
   .card:hover,
   .email-btn:hover { transform: none; }
+  .ember { box-shadow: none; }
 }
