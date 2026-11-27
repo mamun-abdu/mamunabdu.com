@@ -64,8 +64,10 @@
     applyActive(current);
   }
 
+  const yearEl = document.querySelector("[data-year]");
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
   setActiveNav();
   window.addEventListener("scroll", setActiveNav, { passive: true });
   window.addEventListener("resize", setActiveNav);
-
 })();

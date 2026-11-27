@@ -7,6 +7,8 @@
   <meta name="description" content="Statistics and CS student exploring AI, data, and software development." />
   <meta name="author" content="Md. Abdullah Al Mamun" />
   <meta name="theme-color" content="#0a0b0d" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://mamunabdu.com/" />
 
   <meta property="og:type" content="website" />
@@ -16,6 +18,7 @@
   <meta property="og:image" content="https://mamunabdu.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Md. Abdullah Al Mamun, Statistics and CS student" />
   <meta property="og:site_name" content="mamunabdu.com" />
   <meta property="og:locale" content="en_US" />
 
@@ -24,6 +27,30 @@
   <meta name="twitter:title" content="Md. Abdullah Al Mamun · Still cooking" />
   <meta name="twitter:description" content="Statistics and CS student exploring AI, data, and software development." />
   <meta name="twitter:image" content="https://mamunabdu.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Md. Abdullah Al Mamun, Statistics and CS student" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Md. Abdullah Al Mamun",
+    "alternateName": "Mamun",
+    "url": "https://mamunabdu.com/",
+    "image": "https://avatars.githubusercontent.com/u/95682988?v=4",
+    "description": "Statistics and CS student exploring AI, data, and software development.",
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Cumilla Victoria Govt. College" },
+      { "@type": "CollegeOrUniversity", "name": "University of the People" }
+    ],
+    "sameAs": [
+      "https://github.com/mamun-abdu",
+      "https://linkedin.com/in/mamunabdu",
+      "https://x.com/mamunabdux",
+      "https://mamunabdu.hashnode.dev/",
+      "https://www.instagram.com/mamunabdux"
+    ]
+  }
+  </script>
 
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
@@ -33,7 +60,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:SOFT,opsz,wght@50,9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -43,6 +70,7 @@
     <div class="header-inner">
       <a class="wordmark" href="./">mamunabdu</a>
       <nav aria-label="Primary">
+        <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#writing">Writing</a>
         <a href="#contact">Contact</a>
@@ -51,7 +79,7 @@
   </header>
 
   <main id="main">
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="status"><span class="ember" aria-hidden="true"></span> Still cooking</p>
         <img
@@ -60,22 +88,24 @@
           alt="GitHub avatar of Md. Abdullah Al Mamun, a pixel-art hooded figure"
           width="128"
           height="128"
+          decoding="async"
+          fetchpriority="high"
         />
-        <h1>Hi, I’m Mamun</h1>
+        <h1 id="hero-title">Hi, I’m Mamun</h1>
         <p class="lede">
           Statistics and CS student exploring AI, data, and software development.
         </p>
         <p class="lede lede-soft">
           This little corner of the web is still being built.
         </p>
-        <div class="socials" aria-label="Social links">
+        <nav class="socials" aria-label="Social links">
           <a href="https://github.com/mamun-abdu" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://linkedin.com/in/mamunabdu" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://mamunabdu.hashnode.dev/" target="_blank" rel="noopener noreferrer">Hashnode</a>
           <a href="https://x.com/mamunabdux" target="_blank" rel="noopener noreferrer">X</a>
           <a href="https://www.instagram.com/mamunabdux" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="mailto:hello@mamunabdu.pro.bd">Email</a>
-        </div>
+        </nav>
       </div>
 
       <div class="code-wrap">
@@ -128,16 +158,53 @@
       </div>
     </section>
 
-    <section id="projects" class="section reveal">
-      <h2 class="section-heading">Projects</h2>
+    <section id="about" class="section reveal" aria-labelledby="about-title">
+      <h2 class="section-heading" id="about-title">About</h2>
+      <div class="about-grid">
+        <div class="about-block">
+          <h3>Education</h3>
+          <ul class="timeline">
+            <li>
+              <span class="tl-title">BSc in Statistics</span>
+              <span class="tl-sub">Cumilla Victoria Govt. College</span>
+            </li>
+            <li>
+              <span class="tl-title">BSc in Computer Science</span>
+              <span class="tl-sub">University of the People</span>
+            </li>
+          </ul>
+          <p class="about-note">Studying both degrees side by side.</p>
+        </div>
+        <div class="about-block">
+          <h3>Recognition</h3>
+          <ul class="timeline">
+            <li>
+              <span class="tl-title">Stanford Code in Place</span>
+              <span class="tl-sub"><time datetime="2025">2025</time></span>
+            </li>
+            <li>
+              <span class="tl-title">Aspire Leaders, Cohort 4</span>
+              <span class="tl-sub"><time datetime="2025">2025</time></span>
+            </li>
+            <li>
+              <span class="tl-title">President’s Scout Award</span>
+              <span class="tl-sub"><time datetime="2021">2021</time></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section reveal" aria-labelledby="projects-title">
+      <h2 class="section-heading" id="projects-title">Projects</h2>
       <div class="card-grid">
         <article class="card">
           <p class="card-meta"><span>HTML</span></p>
           <h3><a href="https://github.com/mamun-abdu/wishweave-showcase" target="_blank" rel="noopener noreferrer">WishWeave</a></h3>
           <p>Turns a rough project or wishlist idea into a clearer build canvas: problem, audience, possible solution, and a next step. No account, no API.</p>
           <p class="card-links">
-            <a href="https://mamun-abdu.github.io/wishweave-showcase/" target="_blank" rel="noopener noreferrer">Live</a>
-            <a href="https://github.com/mamun-abdu/wishweave-showcase" target="_blank" rel="noopener noreferrer">Code</a>
+            <a href="https://mamun-abdu.github.io/wishweave-showcase/" target="_blank" rel="noopener noreferrer" aria-label="WishWeave live demo">Live</a>
+            <a href="https://github.com/mamun-abdu/wishweave-showcase" target="_blank" rel="noopener noreferrer" aria-label="WishWeave source code on GitHub">Code</a>
           </p>
         </article>
         <article class="card">
@@ -145,7 +212,7 @@
           <h3><a href="https://github.com/mamun-abdu/csv-describe" target="_blank" rel="noopener noreferrer">csv-describe</a></h3>
           <p>A stdlib-only CLI that summarizes CSV columns: mean, median, and sample standard deviation for numbers; unique count and mode for categories.</p>
           <p class="card-links">
-            <a href="https://github.com/mamun-abdu/csv-describe" target="_blank" rel="noopener noreferrer">Code</a>
+            <a href="https://github.com/mamun-abdu/csv-describe" target="_blank" rel="noopener noreferrer" aria-label="csv-describe source code on GitHub">Code</a>
           </p>
         </article>
         <article class="card">
@@ -153,7 +220,7 @@
           <h3><a href="https://github.com/mamun-abdu/bangla-pdfcheck" target="_blank" rel="noopener noreferrer">bangla-pdfcheck</a></h3>
           <p>An offline preflight checker for Bengali PDF text layers. It reports Unicode and extraction issues without sending files to the cloud or running OCR.</p>
           <p class="card-links">
-            <a href="https://github.com/mamun-abdu/bangla-pdfcheck" target="_blank" rel="noopener noreferrer">Code</a>
+            <a href="https://github.com/mamun-abdu/bangla-pdfcheck" target="_blank" rel="noopener noreferrer" aria-label="bangla-pdfcheck source code on GitHub">Code</a>
           </p>
         </article>
         <article class="card">
@@ -161,14 +228,14 @@
           <h3><a href="https://github.com/mamun-abdu/extsort" target="_blank" rel="noopener noreferrer">extsort</a></h3>
           <p>A tiny Python CLI that sorts the files in a folder into subfolders named by extension. Standard library only, with a dry-run mode.</p>
           <p class="card-links">
-            <a href="https://github.com/mamun-abdu/extsort" target="_blank" rel="noopener noreferrer">Code</a>
+            <a href="https://github.com/mamun-abdu/extsort" target="_blank" rel="noopener noreferrer" aria-label="extsort source code on GitHub">Code</a>
           </p>
         </article>
       </div>
     </section>
 
-    <section id="writing" class="section reveal">
-      <h2 class="section-heading">Writing</h2>
+    <section id="writing" class="section reveal" aria-labelledby="writing-title">
+      <h2 class="section-heading" id="writing-title">Writing</h2>
       <ul class="post-list" id="posts">
         <li>
           <a href="https://mamunabdu.hashnode.dev/ultimate-guide-to-claiming-the-github-student-developer-pack" target="_blank" rel="noopener noreferrer">
@@ -208,27 +275,27 @@
       </ul>
     </section>
 
-    <section id="contact" class="contact reveal">
+    <section id="contact" class="contact reveal" aria-labelledby="contact-title">
       <p class="eyebrow">Contact</p>
-      <h2>Say hello</h2>
+      <h2 id="contact-title">Say hello</h2>
       <p>
         Open to internships and collaborations.
       </p>
-      <a class="email-btn" href="mailto:hello@mamunabdu.pro.bd">Say hi</a>
-      <div class="socials socials-lg" aria-label="Social links">
+      <a class="email-btn" href="mailto:hello@mamunabdu.pro.bd" aria-label="Email hello@mamunabdu.pro.bd">Say hi</a>
+      <nav class="socials socials-lg" aria-label="Social links (contact)">
         <a href="https://github.com/mamun-abdu" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://linkedin.com/in/mamunabdu" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://mamunabdu.hashnode.dev/" target="_blank" rel="noopener noreferrer">Hashnode</a>
         <a href="https://x.com/mamunabdux" target="_blank" rel="noopener noreferrer">X</a>
         <a href="https://www.instagram.com/mamunabdux" target="_blank" rel="noopener noreferrer">Instagram</a>
-      </div>
+      </nav>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>Built with curiosity by Mamun</p>
+    <p>© <span data-year>2026</span> Md. Abdullah Al Mamun · Built with curiosity by Mamun</p>
   </footer>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>
